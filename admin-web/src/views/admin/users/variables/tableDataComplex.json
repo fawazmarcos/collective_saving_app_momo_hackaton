@@ -1,0 +1,62 @@
+[
+  {
+    "id": "0001",
+    "name": "Segun Adebayo",
+    "email": "segun@contact.co",
+    "country": "Nigeria",
+    "avatar": "https://bit.ly/sage-adebayo",
+    "status": "Approved",
+    "date": "24/Jan/2021",
+    "idCard": "Card"
+  },
+  {
+    "id": "0002",
+    "name": "Dan Abrahmov",
+    "email": "dan@contact.co",
+    "country": "Nigeria",
+    "avatar": "https://bit.ly/dan-abramov",
+    "status": "Pending",
+    "date": "14/Feb/2021",
+    "idCard": "Card"
+  },
+  {
+    "id": "0004",
+    "name": "Christian Nwamba",
+    "email": "nwamba@contact.co",
+    "country": "Ghana",
+    "avatar": "https://bit.ly/code-beast",
+    "status": "Approved",
+    "date": "20/May/2021",
+    "idCard": "Card"
+  },
+  {
+    "id": "0005",
+    "name": "Kent Dodds",
+    "email": "kent@contact.co",
+    "country": "Ghana",
+    "avatar": "https://bit.ly/kent-c-dodds",
+    "status": "Disabled",
+    "date": "19/May/2021",
+    "idCard": "Card"
+  },
+  {
+    "id": "0006",
+    "name": "Prosper Otemuyiwa",
+    "email": "prosper@contact.co",
+    "country": "Ghana",
+    "avatar": "https://bit.ly/prosper-baba",
+    "status": "Pending",
+    "date": "04/Jne/2021",
+    "idCard": "Card"
+  },
+  {
+    "id": "0007",
+    "name": "Ryan Florence",
+    "email": "ryan@contact.co",
+    "country": "Ghana",
+    "avatar": "https://bit.ly/ryan-florence",
+    "status": "Approved",
+    "date": "17/Nov/2021",
+    "idCard": "Card"
+  }
+]

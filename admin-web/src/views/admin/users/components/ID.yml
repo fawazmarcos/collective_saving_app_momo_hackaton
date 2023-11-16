@@ -1,0 +1,16 @@
+ID
+PHOTO
+FIRSTNAME
+LASTNAME
+EMAIL
+COUNTRY
+CREATED DATE / UPDATED DATE
+ID CARD (for kyc)
+STATUS (VERIFIEE/ NON VERIFIEE)
+ACTION (Vérifiée/ Relancer)
+
+
+Transactions pages:
+- listes des transactions ( top-up et payout)
+
+Récupérer les objectifs d'épargnes de chaque  user
