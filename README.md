@@ -1,4 +1,4 @@
-# Coolective Savings 
+# Collective Savings 
 
 ## Running locally
 
