@@ -1,39 +1,42 @@
 export const columnsDataComplex = [
   {
-    Header: "ID",
-    accessor: "id",
+    Header: 'ID',
+    accessor: 'uid',
   },
   {
-    Header: "AVATAR",
-    accessor: "avatar",
+    Header: 'AVATAR',
+    accessor: 'avatar',
   },
   {
-    Header: "NAME",
-    accessor: "name",
+    Header: 'NAME',
+    accessor: 'fullname',
   },
   {
-    Header: "EMAIL",
-    accessor: "email",
+    Header: 'EMAIL',
+    accessor: 'email',
   },
   {
-    Header: "COUNTRY",
-    accessor: "country",
+    Header: 'telephone',
+    accessor: 'telephone',
   },
   {
-    Header: "DATE",
-    accessor: "date",
+    Header: 'profession',
+    accessor: 'profession',
   },
   {
-    Header: "STATUS",
-    accessor: "status",
+    Header: 'COUNTRY',
+    accessor: 'COUNTRY',
   },
   {
-    Header: "ID_CARD",
-    accessor: "idCard",
+    Header: 'created At',
+    accessor: 'createdAt',
   },
+  // {
+  //   Header: "ID CARD",
+  //   accessor: "idCard",
+  // },
   {
-    Header: "ACTION",
-    accessor: "action",
+    Header: 'ACTION',
+    accessor: 'action',
   },
-  
 ];

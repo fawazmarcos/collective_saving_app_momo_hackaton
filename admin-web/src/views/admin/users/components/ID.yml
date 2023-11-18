@@ -14,3 +14,60 @@ Transactions pages:
 - listes des transactions ( top-up et payout)
 
 Récupérer les objectifs d'épargnes de chaque  user
+
+# Statistiques:
+
+Suivi des Transactions :
+
+Nombre total de transactions effectuées.
+Montant total des transactions.
+Moyenne des transactions par utilisateur.
+
+Analyse des Groupes Communautaires :
+
+Nombre de membres dans chaque groupe.
+Activité de contribution par groupe.
+Évolution du nombre de groupes au fil du temps.
+
+
+Analyse des Objectifs d'Épargne :
+
+Nombre total d'objectifs d'épargne créés.
+Montant total des objectifs d'épargne.
+Pourcentage d'objectifs atteints.
+
+Suivi des Récompenses :
+
+Nombre total de récompenses distribuées.
+Types de récompenses les plus populaires.
+Activité de récompense par période.
+
+Analyse des Connexions et de l'Engagement :
+
+Fréquence des connexions des utilisateurs.
+Durée moyenne de session.
+Pages les plus consultées dans l'application.
+
+Analyse des Notifications :
+
+Taux d'ouverture des notifications.
+Taux de réponse aux rappels.
+Contenu de notification le plus efficace.
+
+Suivi des Problèmes et des Litiges :
+
+Nombre de problèmes ou de litiges signalés.
+Temps moyen de résolution.
+Types de problèmes les plus fréquents.
+
+Analyse de la Sécurité :
+
+Tentatives d'accès non autorisées.
+Taux de réussite des tentatives de connexion frauduleuses (si applicable).
+Activité de sécurité globale.
+
+Rapports de Performance du Serveur :
+
+Temps de réponse du serveur.
+Taux d'uptime du serveur.
+Gestion des pics de trafic.

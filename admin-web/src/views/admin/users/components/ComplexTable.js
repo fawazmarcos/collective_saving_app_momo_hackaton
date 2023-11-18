@@ -27,6 +27,7 @@ import Card from 'components/card/Card';
 
 // Assets
 import { BsDot } from 'react-icons/bs';
+
 export default function ColumnsTable(props) {
   const { columnsData, tableData } = props;
 
@@ -105,6 +106,7 @@ export default function ColumnsTable(props) {
             prepareRow(row);
             return (
               <Tr {...row.getRowProps()} key={index}>
+                {console.log('row.cells', row?.cells)}
                 {row.cells.map((cell, index) => {
                   let data = '';
                   if (cell.column.Header === 'ID') {
@@ -120,8 +122,14 @@ export default function ColumnsTable(props) {
                       </Text>
                     );
                   } else if (cell.column.Header === 'AVATAR') {
-                    data = <Avatar name="Dan Abrahmov" src={cell.value} />;
+                    data = <Avatar src={cell.value} />;
                   } else if (cell.column.Header === 'EMAIL') {
+                    data = (
+                      <Text color={textColor} fontSize="sm" fontWeight="700">
+                        {cell.value}
+                      </Text>
+                    );
+                  } else if (cell.column.Header === 'telephone') {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
                         {cell.value}
@@ -169,7 +177,13 @@ export default function ColumnsTable(props) {
                         </Tag>
                       </Flex>
                     );
-                  } else if (cell.column.Header === 'DATE') {
+                  } else if (cell.column.Header === 'created At') {
+                    data = (
+                      <Text color={textColor} fontSize="sm" fontWeight="700">
+                        {cell.value}
+                      </Text>
+                    );
+                  } else if (cell.column.Header === 'profession') {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
                         {cell.value}
@@ -182,6 +196,7 @@ export default function ColumnsTable(props) {
                         colorScheme="blue"
                         size="md"
                         w={'100%'}
+                        px={'2rem'}
                       >
                         Edit
                       </Button>

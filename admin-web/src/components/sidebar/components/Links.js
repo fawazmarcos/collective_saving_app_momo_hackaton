@@ -25,8 +25,9 @@ export function SidebarLinks(props) {
 
   // this function creates the links from the secondary accordions (for example auth -> sign-in -> default)
   const createLinks = (routes) => {
-    console.log('createLinks', routes);
+    // console.log('createLinks', routes);
     return routes.map((route, index) => {
+      // {console.log('route',route)}
       if (route.category) {
         return (
           <>
@@ -50,7 +51,7 @@ export function SidebarLinks(props) {
         );
       } else if (
         route.layout === '/admin' ||
-        // route.layout === '/auth' ||
+        // route.path === '/edit-profile' ||
         route.layout === '/rtl'
       ) {
         return (
