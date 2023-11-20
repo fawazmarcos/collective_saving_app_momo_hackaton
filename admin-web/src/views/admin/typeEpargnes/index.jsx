@@ -1,40 +1,45 @@
-// Chakra imports
 import { Box, SimpleGrid } from '@chakra-ui/react';
 
-import ComplexTable from 'views/admin/dataTables/components/ComplexTable';
-import { columnsDataComplex } from 'views/admin/dataTables/variables/columnsData';
+import ComplexTable from 'views/admin/typeEpargnes/components/ComplexTable';
+import { columnsDataComplex } from 'views/admin/typeEpargnes/variables/columnsData';
 
 import React, { useEffect, useState, useMemo } from 'react';
 
 import { database } from 'config/firebase-config';
 import { getDocs, collection } from 'firebase/firestore';
+import ModalSavings from './components/Modal';
 
-export default function Settings() {
-  const [transactionsLists, setTransactionsLists] = useState([]);
+export default function TypeofSaving() {
+  const [subscriptionsLists, setSubscriptionsLists] = useState([]);
 
-  const transactionsCollectionRef = useMemo(
-    () => collection(database, 'transactions'),
+  const subscriptionsCollectionRef = useMemo(
+    () => collection(database, 'souscriptions'),
     []
   );
 
   useEffect(() => {
     const getAllTransactions = async () => {
       try {
-        const response = await getDocs(transactionsCollectionRef);
+        const response = await getDocs(subscriptionsCollectionRef);
         const filteredData = response.docs.map(doc => ({
           ...doc.data(),
         }));
 
-        setTransactionsLists(filteredData);
+        setSubscriptionsLists(filteredData);
       } catch (error) {
         console.log('error', error);
       }
     };
     getAllTransactions();
-  }, [transactionsCollectionRef]);
+  }, [subscriptionsCollectionRef]);
 
+  // Chakra Color Mode
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
+      <Box mb={'16px'}>
+        <ModalSavings />
+      </Box>
+
       <SimpleGrid
         mb="20px"
         columns={{ sm: 1, md: 1 }}
@@ -42,7 +47,7 @@ export default function Settings() {
       >
         <ComplexTable
           columnsData={columnsDataComplex}
-          tableData={transactionsLists}
+          tableData={subscriptionsLists}
         />
       </SimpleGrid>
     </Box>

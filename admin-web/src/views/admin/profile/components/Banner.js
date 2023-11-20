@@ -43,7 +43,7 @@ export default function Banner(props) {
       />
 
       <HStack justifyContent={'center'} mt={2}>
-        <Link href={'/admin/edit-profile'}>
+        <Link href={'/profile/edit-profile'}>
           <Tag size={'lg'} variant="outline" colorScheme="blue">
             <TagLabel>Modifier son profil</TagLabel>
             <TagRightIcon as={FaUserEdit} />

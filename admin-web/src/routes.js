@@ -6,12 +6,15 @@ import {
   MdPerson,
   MdHome,
   MdLock,
-  MdOutlineShoppingCart,
+  // MdOutlineShoppingCart,
 } from 'react-icons/md';
 
 // Admin Imports
 import MainDashboard from 'views/admin/default';
-import NFTMarketplace from 'views/admin/marketplace';
+import Souscriptions from 'views/admin/souscriptions'
+import TypeEpargnes from 'views/admin/typeEpargnes'
+
+// import NFTMarketplace from 'views/admin/marketplace';
 import Profile from 'views/admin/profile';
 import DataTables from 'views/admin/dataTables';
 import UserProfileEdit from 'views/admin/editProfile/components/editProfile';
@@ -26,7 +29,7 @@ const routes = [
     name: 'Dashboard',
     layout: '/admin',
     path: '/default',
-    icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
+    icon: <Icon as={MdHome} width="20px" height="20px" color="inherit" />,
     component: MainDashboard,
   },
   // {
@@ -47,43 +50,57 @@ const routes = [
   {
     name: 'Transactions',
     layout: '/admin',
-    icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
+    icon: <Icon as={MdBarChart} width="20px" height="20px" color="inherit" />,
     path: '/transactions',
     component: DataTables,
   },
   {
     name: 'Users',
     layout: '/admin',
-    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+    icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
     path: '/users',
     component: Users,
+  },
+  {
+    name: 'Souscriptions',
+    layout: '/admin',
+    icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
+    path: '/subscriptions',
+    component: Souscriptions,
+  },
+  {
+    name: "Types d'épargnes",
+    layout: '/admin',
+    icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
+    path: '/type-of-saving',
+    component: TypeEpargnes,
   },
   {
     name: 'Profile',
     layout: '/admin',
     path: '/profile',
-    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+    icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
     component: Profile,
   },
   {
     name: 'Edit Profile',
-    layout: '/admin',
+    layout: '/profile',
     path: '/edit-profile',
-    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
+    icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
     component: UserProfileEdit,
   },
   {
     name: 'Sign In',
     layout: '/auth',
     path: '/sign-in',
-    icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
+    icon: <Icon as={MdLock} width="20px" height="20px" color="inherit" />,
     component: SignInCentered,
   },
   {
     name: 'Sign Up',
     layout: '/auth',
     path: '/sign-up',
-    icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
+    icon: <Icon as={MdLock} width="20px" height="20px" color="inherit" />,
     component: SignUp,
   },
 ];

@@ -2,7 +2,6 @@ import {
   Flex,
   Table,
   Progress,
-  Icon,
   Tbody,
   Td,
   Text,
@@ -23,7 +22,6 @@ import {
 import Card from 'components/card/Card';
 
 // Assets
-import { MdCheckCircle, MdCancel, MdOutlineError } from 'react-icons/md';
 export default function ColumnsTable(props) {
   const { columnsData, tableData } = props;
 
@@ -57,7 +55,7 @@ export default function ColumnsTable(props) {
       direction="column"
       w="100%"
       px="0px"
-      overflowX={{ sm: 'scroll', lg: 'hidden' }}
+      overflowX={{ sm: 'scroll', lg: 'scroll' }}
     >
       <Flex px="25px" justify="space-between" mb="20px" align="center">
         <Text
@@ -66,7 +64,7 @@ export default function ColumnsTable(props) {
           fontWeight="700"
           lineHeight="100%"
         >
-          Transactions
+          Souscriptions
         </Text>
       </Flex>
       <Table {...getTableProps()} variant="simple" color="gray.500" mb="24px">
@@ -106,13 +104,13 @@ export default function ColumnsTable(props) {
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === 'ID SOUSCRIPTION') {
+                  } else if (cell.column.Header === 'EPARGNE') {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === 'MONTANT') {
+                  } else if (cell.column.Header === 'CAPITAL') {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
                         {cell.value}
@@ -121,38 +119,39 @@ export default function ColumnsTable(props) {
                   } else if (cell.column.Header === 'STATUS') {
                     data = (
                       <Flex align="center">
-                        <Icon
-                          w="24px"
-                          h="24px"
-                          me="5px"
+                        <Text
                           color={
-                            cell.value === 'Approved'
+                            cell.value === 0
                               ? 'green.500'
-                              : cell.value === 'Disable'
+                              : cell.value === 1
                               ? 'red.500'
-                              : cell.value === 'Error'
-                              ? 'orange.500'
+                              : cell.value === 2
+                              ? 'yellow.500'
                               : null
                           }
-                          as={
-                            cell.value === 'Approved'
-                              ? MdCheckCircle
-                              : cell.value === 'Disable'
-                              ? MdCancel
-                              : cell.value === 'Error'
-                              ? MdOutlineError
-                              : null
-                          }
-                        />
-                        <Text color={textColor} fontSize="sm" fontWeight="700">
-                          {cell.value}
+                          fontSize="sm"
+                          fontWeight="700"
+                        >
+                          {cell.value === 0
+                              ? 'Clôturé'
+                              : cell.value === 1
+                              ? 'En cours'
+                              : cell.value === 2
+                              ? 'Demande de retrait'
+                              : ''}
                         </Text>
                       </Flex>
                     );
-                  } else if (cell.column.Header === 'TYPE') {
+                  } else if (cell.column.Header === 'COMPTE EPARGNE') {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
-                        {cell.value}
+                        {cell.value ? 'Bloqué' : 'Non bloquée'}
+                      </Text>
+                    );
+                  } else if (cell.column.Header === 'Date Retrait Prévu') {
+                    data = (
+                      <Text color={textColor} fontSize="sm" fontWeight="700">
+                        {cell.value.seconds}s
                       </Text>
                     );
                   } else if (cell.column.Header === 'CREATED AT') {
@@ -161,20 +160,19 @@ export default function ColumnsTable(props) {
                         {cell.value}
                       </Text>
                     );
+                  } else if (cell.column.Header === 'PROGRESS') {
+                    data = (
+                      <Flex align="center">
+                        <Progress
+                          variant="table"
+                          colorScheme="brandScheme"
+                          h="8px"
+                          w="108px"
+                          value={50}
+                        />
+                      </Flex>
+                    );
                   }
-                  // else if (cell.column.Header === 'PROGRESS') {
-                  //   data = (
-                  //     <Flex align="center">
-                  //       <Progress
-                  //         variant="table"
-                  //         colorScheme="brandScheme"
-                  //         h="8px"
-                  //         w="108px"
-                  //         value={cell.value}
-                  //       />
-                  //     </Flex>
-                  //   );
-                  // }
                   return (
                     <Td
                       {...cell.getCellProps()}

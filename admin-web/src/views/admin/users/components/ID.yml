@@ -21,7 +21,7 @@ Suivi des Transactions :
 
 Nombre total de transactions effectuées.
 Montant total des transactions.
-Moyenne des transactions par utilisateur.
+Moyenne des transactions par utilisateur. (La moyenne des transactions par utilisateur est calculée en divisant le nombre total de transactions par le nombre total d'utilisateurs)
 
 Analyse des Groupes Communautaires :
 

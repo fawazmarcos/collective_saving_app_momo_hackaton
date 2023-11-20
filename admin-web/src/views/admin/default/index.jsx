@@ -1,17 +1,11 @@
 import {
-  Avatar,
   Box,
-  Flex,
-  FormLabel,
   Icon,
-  Select,
   SimpleGrid,
   useColorModeValue,
 } from '@chakra-ui/react';
 // Assets
-import Usa from 'assets/img/dashboards/usa.png';
 // Custom components
-import MiniCalendar from 'components/calendar/MiniCalendar';
 import MiniStatistics from 'components/card/MiniStatistics';
 import IconBox from 'components/icons/IconBox';
 import React from 'react';
@@ -21,21 +15,13 @@ import {
   MdBarChart,
   MdFileCopy,
 } from 'react-icons/md';
-import CheckTable from 'views/admin/default/components/CheckTable';
-import ComplexTable from 'views/admin/default/components/ComplexTable';
 import DailyTraffic from 'views/admin/default/components/DailyTraffic';
 import PieCard from 'views/admin/default/components/PieCard';
-import Tasks from 'views/admin/default/components/Tasks';
 import TotalSpent from 'views/admin/default/components/TotalSpent';
 import WeeklyRevenue from 'views/admin/default/components/WeeklyRevenue';
-import {
-  columnsDataCheck,
-  columnsDataComplex,
-} from 'views/admin/default/variables/columnsData';
-import tableDataCheck from 'views/admin/default/variables/tableDataCheck.json';
-import tableDataComplex from 'views/admin/default/variables/tableDataComplex.json';
 
-export default function UserReports() {
+
+export default function Transactions() {
   // Chakra Color Mode
   const brandColor = useColorModeValue('brand.500', 'white');
   const boxBg = useColorModeValue('secondaryGray.300', 'whiteAlpha.100');
@@ -53,12 +39,12 @@ export default function UserReports() {
               h="56px"
               bg={boxBg}
               icon={
-                <Icon w="32px" h="32px" as={MdBarChart} color={brandColor} />
+                <Icon w="32px" h="32px" as={MdAttachMoney} color={brandColor} />
               }
             />
           }
-          name="Earnings"
-          value="$350.4"
+          name="Montant total des transactions"
+          value="XOF 35.4 M"
         />
         <MiniStatistics
           startContent={
@@ -67,35 +53,17 @@ export default function UserReports() {
               h="56px"
               bg={boxBg}
               icon={
-                <Icon w="32px" h="32px" as={MdAttachMoney} color={brandColor} />
+                <Icon w="32px" h="32px" as={MdBarChart} color={brandColor} />
               }
             />
           }
-          name="Spend this month"
-          value="$642.39"
+          name="Total de transactions effectuées"
+          value="642"
         />
-        <MiniStatistics growth="+23%" name="Sales" value="$574.34" />
+        <MiniStatistics growth="+23%" name="Moyenne des transactions par utilisateur" value="XOF 250.000" />
         <MiniStatistics
-          endContent={
-            <Flex me="-16px" mt="10px">
-              <FormLabel htmlFor="balance">
-                <Avatar src={Usa} />
-              </FormLabel>
-              <Select
-                id="balance"
-                variant="mini"
-                mt="5px"
-                me="0px"
-                defaultValue="usd"
-              >
-                <option value="usd">USD</option>
-                <option value="eur">EUR</option>
-                <option value="gba">GBA</option>
-              </Select>
-            </Flex>
-          }
-          name="Your balance"
-          value="$1,000"
+          name="Montant total des objectifs d'épargne"
+          value="XOF 120.00 M"
         />
         <MiniStatistics
           startContent={
@@ -106,8 +74,8 @@ export default function UserReports() {
               icon={<Icon w="28px" h="28px" as={MdAddTask} color="white" />}
             />
           }
-          name="New Tasks"
-          value="154"
+          name="Pourcentage d'objectifs atteints"
+          value="54%"
         />
         <MiniStatistics
           startContent={
@@ -120,7 +88,7 @@ export default function UserReports() {
               }
             />
           }
-          name="Total Projects"
+          name="Total d'objectifs d'épargne créés"
           value="2935"
         />
       </SimpleGrid>

@@ -19,10 +19,10 @@ export const columnsDataComplex = [
     Header: "TYPE",
     accessor: "typeTransaction",
   },
-  {
-    Header: "PROGRESS",
-    accessor: "progress",
-  },
+  // {
+  //   Header: "PROGRESS",
+  //   accessor: "progress",
+  // },
   {
     Header: "CREATED AT",
     accessor: "createdAt",
