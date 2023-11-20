@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "545513472014",
-    "project_id": "epargnecollective",
-    "storage_bucket": "epargnecollective.appspot.com"
+    "project_number": "604316467070",
+    "project_id": "epargnecollective-83f97",
+    "storage_bucket": "epargnecollective-83f97.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:545513472014:android:2940a1542aa47f0f657c5f",
+        "mobilesdk_app_id": "1:604316467070:android:5d859cb4eb909841eefd2f",
         "android_client_info": {
           "package_name": "com.macotech.epargne_collective"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDku5IXrXNKs-q6pXcwBzSdg36n-eePfaU"
+          "current_key": "AIzaSyAhcisMkVsmhxKZOjQmyhqRAq9DU-J-Ee8"
         }
       ],
       "services": {
