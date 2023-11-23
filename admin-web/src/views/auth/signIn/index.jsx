@@ -28,6 +28,7 @@ import { auth } from 'config/firebase-config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { database } from 'config/firebase-config';
 import { getDoc, doc } from 'firebase/firestore';
+import { useHistory } from 'react-router-dom';
 
 function SignIn() {
   // Chakra color mode
@@ -42,6 +43,7 @@ function SignIn() {
   const [password, setPassword] = useState('');
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
+  const history = useHistory();
 
   const submitLogin = async () => {
     try {
@@ -57,7 +59,12 @@ function SignIn() {
           const userDocSnapshot = await getDoc(userDocRef);
 
           if (userDocSnapshot.exists()) {
-            await localStorage.setItem('USER', JSON.stringify(response?.user));
+            await localStorage.setItem(
+              'USER',
+              JSON.stringify(
+                userDocSnapshot?._document.data.value.mapValue.fields
+              )
+            );
             toast({
               position: 'top-right',
               title: 'Connexion à votre compte !',
@@ -66,6 +73,11 @@ function SignIn() {
               duration: 5000,
               isClosable: true,
             });
+            // history.replace replaces current URL with new URL
+            history.replace('/admin/default');
+
+            // history.push adds a new URL to the browser's history
+            history.push('/admin/default');
           }
         } catch (e) {
           console.log('e', e);

@@ -1,9 +1,4 @@
-import {
-  Box,
-  Icon,
-  SimpleGrid,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Icon, SimpleGrid, useColorModeValue } from '@chakra-ui/react';
 // Assets
 // Custom components
 import MiniStatistics from 'components/card/MiniStatistics';
@@ -20,11 +15,11 @@ import PieCard from 'views/admin/default/components/PieCard';
 import TotalSpent from 'views/admin/default/components/TotalSpent';
 import WeeklyRevenue from 'views/admin/default/components/WeeklyRevenue';
 
-
 export default function Transactions() {
   // Chakra Color Mode
   const brandColor = useColorModeValue('brand.500', 'white');
   const boxBg = useColorModeValue('secondaryGray.300', 'whiteAlpha.100');
+
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
       <SimpleGrid
@@ -60,7 +55,11 @@ export default function Transactions() {
           name="Total de transactions effectuées"
           value="642"
         />
-        <MiniStatistics growth="+23%" name="Moyenne des transactions par utilisateur" value="XOF 250.000" />
+        <MiniStatistics
+          growth="+23%"
+          name="Moyenne des transactions par utilisateur"
+          value="XOF 250.000"
+        />
         <MiniStatistics
           name="Montant total des objectifs d'épargne"
           value="XOF 120.00 M"

@@ -12,29 +12,33 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  useToast,
 } from '@chakra-ui/react';
 import React from 'react';
 import { database } from 'config/firebase-config';
 import { addDoc, collection } from 'firebase/firestore';
 import moment from 'moment';
+// import { BeatLoader } from "@chakra-ui/icons"
 
-export default function CreateModal({getAllTransactions}) {
+export default function CreateModal({ getAllTransactions }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
 
-  // const [type, setType] = React.useState();
+  const toast = useToast();
   const [description, setDescription] = React.useState();
   const [libelle, setLibelle] = React.useState();
   const [checkedItems, setCheckedItems] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   const typeofsavingsCollectionRef = React.useMemo(
     () => collection(database, 'types_epargne'),
     []
   );
-  
+
   const onSubmit = async () => {
+    setLoading(true);
     try {
       await addDoc(typeofsavingsCollectionRef, {
         libelle: libelle,
@@ -42,9 +46,20 @@ export default function CreateModal({getAllTransactions}) {
         createdAt: moment(Date.now()).format('DD-MM-YYYY'),
         bourse: checkedItems,
       });
+
       getAllTransactions();
+      setLoading(false);
       onClose();
+      toast({
+        position: 'top-right',
+        title: "Créationde type d'épargne!",
+        description: "L'épargne a été créée avec succès",
+        status: 'success',
+        duration: 5000,
+        isClosable: true,
+      });
     } catch (e) {
+      setLoading(false);
       console.log('errrr', e);
     }
   };
@@ -93,7 +108,14 @@ export default function CreateModal({getAllTransactions}) {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onSubmit}>
+            <Button
+              isLoading={loading}
+              colorScheme="blue"
+              // spinner={<BeatLoader size={8} color="white" />}
+              variant="solid"
+              mr={3}
+              onClick={onSubmit}
+            >
               Enregistrer
             </Button>
             <Button onClick={onClose}>Annuler</Button>

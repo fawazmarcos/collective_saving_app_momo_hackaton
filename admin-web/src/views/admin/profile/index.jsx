@@ -7,8 +7,17 @@ import Banner from 'views/admin/profile/components/Banner';
 import banner from 'assets/img/auth/banner.png';
 import avatar from 'assets/img/avatars/avatar4.png';
 import React from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Overview() {
+
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const value = localStorage.getItem('USER');
+    setUser(JSON.parse(value));
+  }, [localStorage.getItem('USER')]);
+
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
       {/* Main Fields */}
@@ -21,9 +30,8 @@ export default function Overview() {
         <Banner
           gridArea="1 / 1 / 2 / 2"
           banner={banner}
-          avatar={avatar}
-          name="Adela Parkson"
-          email="adela@contact.com"
+          name={user?.fullname?.stringValue}
+          email={user?.email?.stringValue}
         />
       </Grid>
     </Box>
