@@ -1,7 +1,6 @@
 import {
   Flex,
   Table,
-  Progress,
   Icon,
   Tbody,
   Td,
@@ -10,6 +9,8 @@ import {
   Thead,
   Tr,
   useColorModeValue,
+  Button,
+  useToast,
 } from '@chakra-ui/react';
 import React, { useMemo } from 'react';
 import {
@@ -18,15 +19,17 @@ import {
   useSortBy,
   useTable,
 } from 'react-table';
+import axios from 'axios';
 
 // Custom components
 import Card from 'components/card/Card';
 
 // Assets
 import { MdCheckCircle, MdCancel, MdOutlineError } from 'react-icons/md';
+
 export default function ColumnsTable(props) {
   const { columnsData, tableData } = props;
-
+  const toast = useToast();
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => tableData, [tableData]);
 
@@ -52,12 +55,50 @@ export default function ColumnsTable(props) {
 
   const textColor = useColorModeValue('secondaryGray.900', 'white');
   const borderColor = useColorModeValue('gray.200', 'whiteAlpha.100');
+
+  const submitWithdrawls = async data => {
+    try {
+      const formData = new FormData();
+      formData.append('telephone', data.telephone);
+      formData.append('montant', data.montant);
+
+      const res = await axios.post(
+        'https://dev.macotech.tech/momo_api/disbursement/deposit.php',
+        formData
+      );
+      // console.log('res', res);
+
+      if (res.data?.status === 200) {
+        toast({
+          position: 'top-right',
+          title: 'Transaction effectuée!',
+          description: 'Paiement effectué avec succès',
+          status: 'success',
+          duration: 5000,
+          isClosable: true,
+        });
+      } else if (res.data?.status === 400) {
+        toast({
+          position: 'top-right',
+          title: 'Erreur!',
+          description: 'Une erreur s’est produite',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+      }
+
+    } catch (e) {
+      console.log('e', e);
+    }
+  };
+
   return (
     <Card
       direction="column"
       w="100%"
       px="0px"
-      overflowX={{ sm: 'scroll', lg: 'hidden' }}
+      overflowX={{ sm: 'scroll', lg: 'scroll' }}
     >
       <Flex px="25px" justify="space-between" mb="20px" align="center">
         <Text
@@ -99,6 +140,7 @@ export default function ColumnsTable(props) {
             return (
               <Tr {...row.getRowProps()} key={index}>
                 {row.cells.map((cell, index) => {
+                  console.log('cell cell', cell);
                   let data = '';
                   if (cell.column.Header === 'ID') {
                     data = (
@@ -113,6 +155,12 @@ export default function ColumnsTable(props) {
                       </Text>
                     );
                   } else if (cell.column.Header === 'MONTANT') {
+                    data = (
+                      <Text color={textColor} fontSize="sm" fontWeight="700">
+                        {cell.value}
+                      </Text>
+                    );
+                  } else if (cell.column.Header === 'TELEPHONE') {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
                         {cell.value}
@@ -161,20 +209,25 @@ export default function ColumnsTable(props) {
                         {cell.value}
                       </Text>
                     );
+                  } else if (cell.column.Header === 'ACTION') {
+                    data = (
+                      <Button
+                        color={'white'}
+                        colorScheme="blue"
+                        size="md"
+                        w={'100%'}
+                        px={'2rem'}
+                        onClick={() => submitWithdrawls(cell?.row?.original)}
+                        disabled={
+                          cell?.row?.original?.typeTransaction === 'Dépôt'
+                            ? true
+                            : false
+                        }
+                      >
+                        Valider
+                      </Button>
+                    );
                   }
-                  // else if (cell.column.Header === 'PROGRESS') {
-                  //   data = (
-                  //     <Flex align="center">
-                  //       <Progress
-                  //         variant="table"
-                  //         colorScheme="brandScheme"
-                  //         h="8px"
-                  //         w="108px"
-                  //         value={cell.value}
-                  //       />
-                  //     </Flex>
-                  //   );
-                  // }
                   return (
                     <Td
                       {...cell.getCellProps()}

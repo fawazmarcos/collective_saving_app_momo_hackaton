@@ -14,6 +14,7 @@ import {
   InputRightElement,
   Text,
   useColorModeValue,
+  useToast,
 } from '@chakra-ui/react';
 // Custom components
 import DefaultAuth from 'layouts/auth/Default';
@@ -24,7 +25,9 @@ import { RiEyeCloseLine } from 'react-icons/ri';
 
 import { useState } from 'react';
 import { auth } from 'config/firebase-config';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { database } from 'config/firebase-config';
+import { getDoc, doc } from 'firebase/firestore';
 
 function SignIn() {
   // Chakra color mode
@@ -34,6 +37,7 @@ function SignIn() {
   const textColorBrand = useColorModeValue('brand.500', 'white');
   const brandStars = useColorModeValue('brand.500', 'brand.400');
 
+  const toast = useToast();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [show, setShow] = React.useState(false);
@@ -41,12 +45,43 @@ function SignIn() {
 
   const submitLogin = async () => {
     try {
-      console.log('test test');
-      const response = await createUserWithEmailAndPassword(auth, email, password)
-      console.log('response', response);
+      const response = await signInWithEmailAndPassword(
+        auth,
+        email.trim(),
+        password
+      );
 
+      if (response?.user?.uid) {
+        try {
+          const userDocRef = doc(database, 'users', response?.user?.uid);
+          const userDocSnapshot = await getDoc(userDocRef);
+
+          if (userDocSnapshot.exists()) {
+            await localStorage.setItem('USER', JSON.stringify(response?.user));
+            toast({
+              position: 'top-right',
+              title: 'Connexion à votre compte !',
+              description: "Vous serez redirigez vers l'admin",
+              status: 'success',
+              duration: 5000,
+              isClosable: true,
+            });
+          }
+        } catch (e) {
+          console.log('e', e);
+        }
+      }
     } catch (e) {
-      console.log('errror', e);
+      if (e.code === 'auth/invalid-login-credentials') {
+        toast({
+          position: 'top-right',
+          title: "Erreur d'authentification!",
+          description: 'Veuillez vérifier les identifiants entrés',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+      }
     }
   };
 
@@ -103,6 +138,7 @@ function SignIn() {
             </FormLabel>
             <Input
               isRequired={true}
+              id="email"
               variant="auth"
               fontSize="sm"
               ms={{ base: '0px', md: '0px' }}
@@ -129,6 +165,7 @@ function SignIn() {
             <InputGroup size="md">
               <Input
                 isRequired={true}
+                id="password"
                 fontSize="sm"
                 placeholder="Min. 8 characters"
                 mb="24px"

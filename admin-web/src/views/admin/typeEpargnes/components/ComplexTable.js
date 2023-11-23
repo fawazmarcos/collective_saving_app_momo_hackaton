@@ -1,7 +1,6 @@
 import {
   Flex,
   Table,
-  Progress,
   Tbody,
   Td,
   Text,
@@ -21,7 +20,6 @@ import {
 // Custom components
 import Card from 'components/card/Card';
 
-// Assets
 export default function ColumnsTable(props) {
   const { columnsData, tableData } = props;
 
@@ -55,7 +53,7 @@ export default function ColumnsTable(props) {
       direction="column"
       w="100%"
       px="0px"
-      overflowX={{ sm: 'scroll', lg: 'hidden' }}
+      overflowX={{ sm: 'scroll', lg: 'scroll' }}
     >
       <Flex px="25px" justify="space-between" mb="20px" align="center">
         <Text
@@ -79,7 +77,7 @@ export default function ColumnsTable(props) {
                   borderColor={borderColor}
                 >
                   <Flex
-                    justify="space-between"
+                    justify="flex-start"
                     align="center"
                     fontSize={{ sm: '10px', lg: '12px' }}
                     color="gray.400"

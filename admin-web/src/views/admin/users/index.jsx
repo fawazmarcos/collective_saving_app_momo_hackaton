@@ -20,9 +20,9 @@ export default function Users() {
       try {
         const response = await getDocs(usersCollectionRef);
         const filteredData = response.docs.map(doc => ({
-          ...doc.data(),
+          ...doc.data()
         }));
-
+        
         setUsersLists(filteredData);
       } catch (error) {
         console.log('error', error);
@@ -38,7 +38,10 @@ export default function Users() {
         columns={{ sm: 1, md: 1 }}
         spacing={{ base: '20px', xl: '20px' }}
       >
-        <ComplexTable columnsData={columnsDataComplex} tableData={usersLists} />
+        <ComplexTable
+          columnsData={columnsDataComplex}
+          tableData={usersLists}
+        />
       </SimpleGrid>
     </Box>
   );

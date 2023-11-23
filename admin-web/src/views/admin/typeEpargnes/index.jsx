@@ -12,32 +12,33 @@ import ModalSavings from './components/Modal';
 export default function TypeofSaving() {
   const [subscriptionsLists, setSubscriptionsLists] = useState([]);
 
-  const subscriptionsCollectionRef = useMemo(
-    () => collection(database, 'souscriptions'),
+  const typeofsavingsCollectionRef = useMemo(
+    () => collection(database, 'types_epargne'),
     []
   );
 
+  const getAllTransactions = async () => {
+    try {
+      const response = await getDocs(typeofsavingsCollectionRef);
+      const filteredData = response.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+
+      setSubscriptionsLists(filteredData);
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+
   useEffect(() => {
-    const getAllTransactions = async () => {
-      try {
-        const response = await getDocs(subscriptionsCollectionRef);
-        const filteredData = response.docs.map(doc => ({
-          ...doc.data(),
-        }));
-
-        setSubscriptionsLists(filteredData);
-      } catch (error) {
-        console.log('error', error);
-      }
-    };
     getAllTransactions();
-  }, [subscriptionsCollectionRef]);
+  }, [typeofsavingsCollectionRef]);
 
-  // Chakra Color Mode
   return (
     <Box pt={{ base: '130px', md: '80px', xl: '80px' }}>
       <Box mb={'16px'}>
-        <ModalSavings />
+        <ModalSavings getAllTransactions={getAllTransactions} />
       </Box>
 
       <SimpleGrid

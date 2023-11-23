@@ -12,6 +12,10 @@ export const columnsDataComplex = [
     accessor: "montant",
   },
   {
+    Header: "TELEPHONE",
+    accessor: "telephone",
+  },
+  {
     Header: "STATUS",
     accessor: "status",
   },
@@ -26,5 +30,9 @@ export const columnsDataComplex = [
   {
     Header: "CREATED AT",
     accessor: "createdAt",
+  },
+  {
+    Header: 'ACTION',
+    accessor: 'action',
   },
 ];

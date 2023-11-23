@@ -17,6 +17,7 @@ import {
   useSortBy,
   useTable,
 } from 'react-table';
+import moment from 'moment';
 
 // Custom components
 import Card from 'components/card/Card';
@@ -151,7 +152,7 @@ export default function ColumnsTable(props) {
                   } else if (cell.column.Header === 'Date Retrait Prévu') {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
-                        {cell.value.seconds}s
+                        {moment(cell.value.seconds).format('DD-MM-YYYY')}
                       </Text>
                     );
                   } else if (cell.column.Header === 'CREATED AT') {
