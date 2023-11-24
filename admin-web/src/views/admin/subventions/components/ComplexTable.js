@@ -48,6 +48,8 @@ export default function ColumnsTable(props) {
   const data = useMemo(() => tableData, [tableData]);
   const [loading, setLoading] = React.useState(false);
   const [amount, setAmount] = React.useState(0);
+  const [infos, setInfos] = React.useState({});
+
   const tableInstance = useTable(
     {
       columns,
@@ -97,12 +99,12 @@ export default function ColumnsTable(props) {
   };
 
   // Function to validate subvention request
-  const submitSubventions = async data => {
+  const submitSubventions = async () => {
     setLoading(true);
 
     try {
-      await updateRequest(data?.id, 1, amount);
-      await updateAmountSaving(data?.idSouscription, parseInt(amount));
+      await updateRequest(infos?.id, 1, amount);
+      await updateAmountSaving(infos?.idSouscription, parseInt(amount));
       getAllSubventionsRequests();
       setLoading(false);
       onClose();
@@ -223,7 +225,10 @@ export default function ColumnsTable(props) {
                           size="md"
                           w={'100%'}
                           px={'2rem'}
-                          onClick={onOpen}
+                          onClick={() => {
+                            onOpen();
+                            setInfos(cell?.row?.original);
+                          }}
                           disabled={
                             cell?.row?.original?.traitement === 1 ? true : false
                           }
@@ -258,9 +263,7 @@ export default function ColumnsTable(props) {
                                 colorScheme="blue"
                                 variant="solid"
                                 mr={3}
-                                onClick={() =>
-                                  submitSubventions(cell?.row?.original)
-                                }
+                                onClick={() => submitSubventions()}
                               >
                                 Ajouter
                               </Button>
