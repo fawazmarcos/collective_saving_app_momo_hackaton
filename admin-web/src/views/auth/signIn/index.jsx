@@ -44,8 +44,10 @@ function SignIn() {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
   const history = useHistory();
+  const [loading, setLoading] = React.useState(false);
 
   const submitLogin = async () => {
+    setLoading(true);
     try {
       const response = await signInWithEmailAndPassword(
         auth,
@@ -73,6 +75,8 @@ function SignIn() {
               duration: 5000,
               isClosable: true,
             });
+            setLoading(false);
+
             // history.replace replaces current URL with new URL
             history.replace('/admin/default');
 
@@ -81,6 +85,7 @@ function SignIn() {
           }
         } catch (e) {
           console.log('e', e);
+          setLoading(false);
         }
       }
     } catch (e) {
@@ -212,9 +217,12 @@ function SignIn() {
               </NavLink>
             </Flex>
             <Button
+              isLoading={loading}
               fontSize="sm"
               variant="brand"
               fontWeight="500"
+              // colorScheme="blue"
+              _hover={{ opacity: 1 }}
               w="100%"
               h="50"
               mb="24px"

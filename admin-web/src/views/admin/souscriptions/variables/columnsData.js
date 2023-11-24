@@ -12,7 +12,7 @@ export const columnsDataComplex = [
     accessor: "montantPaye",
   },
   {
-    Header: "STATUS",
+    Header: "STATUT",
     accessor: "status",
   },
   {
@@ -24,11 +24,11 @@ export const columnsDataComplex = [
     accessor: "dateRetraitPrevu",
   },
   {
-    Header: "PROGRESS",
+    Header: "PROGRESSION",
     accessor: "progress",
   },
   {
-    Header: "CREATED AT",
+    Header: "CRÉÉ LE",
     accessor: "createdAt",
   },
 ];

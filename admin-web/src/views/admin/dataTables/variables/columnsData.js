@@ -16,19 +16,15 @@ export const columnsDataComplex = [
     accessor: "telephone",
   },
   {
-    Header: "STATUS",
+    Header: "STATUT",
     accessor: "status",
   },
   {
     Header: "TYPE",
     accessor: "typeTransaction",
   },
-  // {
-  //   Header: "PROGRESS",
-  //   accessor: "progress",
-  // },
   {
-    Header: "CREATED AT",
+    Header: "CRÉÉ LE",
     accessor: "createdAt",
   },
   {

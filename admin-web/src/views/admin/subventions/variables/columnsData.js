@@ -16,7 +16,7 @@ export const columnsDataComplex = [
     accessor: "traitement",
   },
   {
-    Header: "CREATED AT",
+    Header: "CRÉÉ LE",
     accessor: "createdAt",
   },
   {

@@ -62,7 +62,7 @@ export default function ColumnsTable(props) {
           fontWeight="700"
           lineHeight="100%"
         >
-          Types d'épargnes
+          Types d'épargne
         </Text>
       </Flex>
       <Table {...getTableProps()} variant="simple" color="gray.500" mb="24px">
@@ -114,7 +114,7 @@ export default function ColumnsTable(props) {
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === 'CREATED AT') {
+                  } else if (cell.column.Header === 'CRÉÉ LE') {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
                         {cell.value}

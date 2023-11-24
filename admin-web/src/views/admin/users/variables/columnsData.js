@@ -8,7 +8,7 @@ export const columnsDataComplex = [
     accessor: 'avatar',
   },
   {
-    Header: 'NAME',
+    Header: 'NOM',
     accessor: 'fullname',
   },
   {
@@ -24,11 +24,11 @@ export const columnsDataComplex = [
     accessor: 'profession',
   },
   {
-    Header: 'COUNTRY',
+    Header: 'PAYS',
     accessor: 'COUNTRY',
   },
   {
-    Header: 'created At',
+    Header: 'CRÉÉ LE',
     accessor: 'createdAt',
   },
   // {

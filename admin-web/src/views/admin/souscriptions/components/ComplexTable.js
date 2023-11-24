@@ -117,7 +117,7 @@ export default function ColumnsTable(props) {
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === 'STATUS') {
+                  } else if (cell.column.Header === 'STATUT') {
                     data = (
                       <Flex align="center">
                         <Text
@@ -155,13 +155,13 @@ export default function ColumnsTable(props) {
                         {moment(cell.value.seconds).format('DD-MM-YYYY')}
                       </Text>
                     );
-                  } else if (cell.column.Header === 'CREATED AT') {
+                  } else if (cell.column.Header === 'CRÉÉ LE') {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === 'PROGRESS') {
+                  } else if (cell.column.Header === 'PROGRESSION') {
                     data = (
                       <Flex align="center">
                         <Progress

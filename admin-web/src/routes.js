@@ -88,7 +88,7 @@ const routes = [
     component: Subventions,
   },
   {
-    name: "Types d'épargnes",
+    name: "Types d'épargne",
     layout: '/admin',
     icon: <Icon as={MdSavings} width="20px" height="20px" color="inherit" />,
     path: '/type-of-saving',

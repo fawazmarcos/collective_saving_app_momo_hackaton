@@ -71,7 +71,7 @@ export default function ColumnsTable(props) {
           fontWeight="700"
           lineHeight="100%"
         >
-          Users
+          Nos utilisateurs
         </Text>
       </Flex>
       <Table {...getTableProps()} variant="simple" color="gray.500" mb="24px">
@@ -106,7 +106,6 @@ export default function ColumnsTable(props) {
             prepareRow(row);
             return (
               <Tr {...row.getRowProps()} key={index}>
-                {console.log('row.cells', row?.cells)}
                 {row.cells.map((cell, index) => {
                   let data = '';
                   if (cell.column.Header === 'ID') {
@@ -115,7 +114,7 @@ export default function ColumnsTable(props) {
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === 'NAME') {
+                  } else if (cell.column.Header === 'NOM') {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
                         {cell.value}
@@ -135,7 +134,7 @@ export default function ColumnsTable(props) {
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === 'COUNTRY') {
+                  } else if (cell.column.Header === 'PAYS') {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
                         {cell.value}
@@ -147,7 +146,7 @@ export default function ColumnsTable(props) {
                         {cell.value}
                       </Text>
                     );
-                  } else if (cell.column.Header === 'STATUS') {
+                  } else if (cell.column.Header === 'STATUT') {
                     data = (
                       <Flex align="center">
                         <Tag
@@ -177,7 +176,7 @@ export default function ColumnsTable(props) {
                         </Tag>
                       </Flex>
                     );
-                  } else if (cell.column.Header === 'created At') {
+                  } else if (cell.column.Header === 'CRÉÉ LE') {
                     data = (
                       <Text color={textColor} fontSize="sm" fontWeight="700">
                         {cell.value}
@@ -198,7 +197,7 @@ export default function ColumnsTable(props) {
                         w={'100%'}
                         px={'2rem'}
                       >
-                        Edit
+                        Editer
                       </Button>
                     );
                   }
