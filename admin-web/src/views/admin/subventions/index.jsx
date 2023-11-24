@@ -23,7 +23,6 @@ export default function Subventions() {
       const filteredData = response.docs.map(doc => ({
         ...doc.data(),
       }));
-      console.log('filteredData', filteredData);
 
       setSubscriptionsLists(filteredData);
     } catch (error) {
