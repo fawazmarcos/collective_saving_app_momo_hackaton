@@ -6,8 +6,11 @@ import {
   MdPerson,
   MdHome,
   MdLock,
+  MdSavings,
   // MdOutlineShoppingCart,
 } from 'react-icons/md';
+import { VscGitPullRequestNewChanges } from "react-icons/vsc";
+import { BiMoneyWithdraw } from "react-icons/bi";
 
 // Admin Imports
 import MainDashboard from 'views/admin/default';
@@ -59,7 +62,7 @@ const routes = [
   {
     name: 'Souscriptions',
     layout: '/admin',
-    icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
+    icon: <Icon as={MdSavings} width="20px" height="20px" color="inherit" />,
     path: '/subscriptions',
     component: Souscriptions,
   },
@@ -73,21 +76,21 @@ const routes = [
   {
     name: 'Demandes de Retraits',
     layout: '/admin',
-    icon: <Icon as={MdBarChart} width="20px" height="20px" color="inherit" />,
+    icon: <Icon as={BiMoneyWithdraw} width="20px" height="20px" color="inherit" />,
     path: '/withdrawls-request',
     component: WithdrawlsRequests,
   },
   {
     name: 'Demandes de Subventions',
     layout: '/admin',
-    icon: <Icon as={MdBarChart} width="20px" height="20px" color="inherit" />,
+    icon: <Icon as={VscGitPullRequestNewChanges} width="20px" height="20px" color="inherit" />,
     path: '/subventions',
     component: Subventions,
   },
   {
     name: "Types d'épargnes",
     layout: '/admin',
-    icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
+    icon: <Icon as={MdSavings} width="20px" height="20px" color="inherit" />,
     path: '/type-of-saving',
     component: TypeEpargnes,
   },
