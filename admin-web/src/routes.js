@@ -11,8 +11,10 @@ import {
 
 // Admin Imports
 import MainDashboard from 'views/admin/default';
-import Souscriptions from 'views/admin/souscriptions'
-import TypeEpargnes from 'views/admin/typeEpargnes'
+import Souscriptions from 'views/admin/souscriptions';
+import TypeEpargnes from 'views/admin/typeEpargnes';
+import WithdrawlsRequests from 'views/admin/withdrawlsRequests';
+import Subventions from 'views/admin/subventions';
 
 // import NFTMarketplace from 'views/admin/marketplace';
 import Profile from 'views/admin/profile';
@@ -48,14 +50,7 @@ const routes = [
   //   secondary: true,
   // },
   {
-    name: 'Transactions',
-    layout: '/admin',
-    icon: <Icon as={MdBarChart} width="20px" height="20px" color="inherit" />,
-    path: '/transactions',
-    component: DataTables,
-  },
-  {
-    name: 'Users',
+    name: 'Utilisateurs',
     layout: '/admin',
     icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
     path: '/users',
@@ -67,6 +62,27 @@ const routes = [
     icon: <Icon as={MdPerson} width="20px" height="20px" color="inherit" />,
     path: '/subscriptions',
     component: Souscriptions,
+  },
+  {
+    name: 'Transactions',
+    layout: '/admin',
+    icon: <Icon as={MdBarChart} width="20px" height="20px" color="inherit" />,
+    path: '/transactions',
+    component: DataTables,
+  },
+  {
+    name: 'Demandes de Retraits',
+    layout: '/admin',
+    icon: <Icon as={MdBarChart} width="20px" height="20px" color="inherit" />,
+    path: '/withdrawls-request',
+    component: WithdrawlsRequests,
+  },
+  {
+    name: 'Demandes de Subventions',
+    layout: '/admin',
+    icon: <Icon as={MdBarChart} width="20px" height="20px" color="inherit" />,
+    path: '/subventions',
+    component: Subventions,
   },
   {
     name: "Types d'épargnes",

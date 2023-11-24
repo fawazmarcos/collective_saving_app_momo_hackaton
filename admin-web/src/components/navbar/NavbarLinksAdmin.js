@@ -41,7 +41,6 @@ export default function HeaderLinks(props) {
 
   useEffect(() => {
     const value = localStorage.getItem('USER');
-    console.log('value', value)
     setUser(JSON.parse(value));
   }, [localStorage.getItem('USER')]);
 
