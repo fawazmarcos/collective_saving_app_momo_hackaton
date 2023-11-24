@@ -1,5 +1,5 @@
 // Chakra imports
-import {Flex, Icon, Text } from '@chakra-ui/react';
+import { Flex, Icon, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import React from 'react';
 import FixedPlugin from 'components/fixedPlugin/FixedPlugin';
@@ -12,7 +12,7 @@ function AuthIllustration(props) {
   const { children } = props;
   // Chakra color mode
   return (
-    <Flex position='relative' h='max-content'>
+    <Flex position="relative" h="max-content">
       <Flex
         h={{
           sm: 'initial',
@@ -20,40 +20,15 @@ function AuthIllustration(props) {
           lg: 'auto',
           xl: 'auto',
         }}
-        w='100%'
+        w="100%"
         maxW={{ md: '66%', lg: '1313px' }}
-        mx='auto'
+        mx="auto"
         pt={{ sm: '50px', md: '0px' }}
         px={{ lg: '30px', xl: '0px' }}
         ps={{ xl: '70px' }}
-        justifyContent='start'
-        direction='column'
+        justifyContent="start"
+        direction="column"
       >
-        <NavLink
-          to='/admin'
-          style={() => ({
-            width: 'fit-content',
-            marginTop: '40px',
-          })}
-        >
-          <Flex
-            align='center'
-            ps={{ base: '25px', lg: '0px' }}
-            pt={{ lg: '0px', xl: '0px' }}
-            w='fit-content'
-          >
-            <Icon
-              as={FaChevronLeft}
-              me='12px'
-              h='13px'
-              w='8px'
-              color='secondaryGray.600'
-            />
-            <Text ms='0px' fontSize='sm' color='secondaryGray.600'>
-              Back to Simmmple
-            </Text>
-          </Flex>
-        </NavLink>
         {children}
       </Flex>
       <FixedPlugin />

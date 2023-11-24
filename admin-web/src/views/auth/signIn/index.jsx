@@ -119,7 +119,7 @@ function SignIn() {
       >
         <Box me="auto">
           <Heading color={textColor} fontSize="36px" mb="10px">
-            Sign In
+            Connexion
           </Heading>
           <Text
             mb="36px"
@@ -128,7 +128,7 @@ function SignIn() {
             fontWeight="400"
             fontSize="md"
           >
-            Enter your email and password to sign in!
+            Bienvenue, veuillez vous connecter !
           </Text>
         </Box>
         <Flex
@@ -209,10 +209,10 @@ function SignIn() {
                 <Text
                   color={textColorBrand}
                   fontSize="sm"
-                  w="124px"
+                  // w="124px"
                   fontWeight="500"
                 >
-                  Forgot password?
+                 Mot de passe oublié?
                 </Text>
               </NavLink>
             </Flex>
@@ -228,10 +228,10 @@ function SignIn() {
               mb="24px"
               onClick={submitLogin}
             >
-              Sign In
+              S'identifier
             </Button>
           </FormControl>
-          <Flex
+          {/* <Flex
             flexDirection="column"
             justifyContent="center"
             alignItems="start"
@@ -251,7 +251,7 @@ function SignIn() {
                 </Text>
               </NavLink>
             </Text>
-          </Flex>
+          </Flex> */}
         </Flex>
       </Flex>
     </DefaultAuth>
